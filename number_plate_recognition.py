@@ -85,7 +85,7 @@ def crop_first_letter(image, plate_type):
     if plate_type == "front":
         x, y, w, h = 95, 10, 83, 180  # Adjust these values for front plates
     else:  # back plate (two rows)
-        x, y, w, h = 40, 60, 80, 120  # Adjust these values for back plates
+        x, y, w, h = 1200, 120, 500, 800  # Adjust these values for back plates
     
     return image[y:y+h, x:x+w]
 
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     }
 
     # Step 1: Preprocess the input image
-    image_path = "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Car front K.jpg"
+    image_path = "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/bike back B.jpg"
     input_image, processed_image = preprocess_image(image_path)
 
     # Step 2: Detect if it's a front or back number plate
