@@ -39,23 +39,16 @@ import numpy as np
 
 # Function to preprocess the input image (grayscale, thresholding, noise reduction)
 def preprocess_image(image_path):
-    # Read the input image
     input_image = cv2.imread(image_path)
-
-    # Convert the image to grayscale
     gray_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
-
-    # Apply thresholding to create a binary image
     _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-
-    # Apply Gaussian blur for noise reduction
     blurred_image = cv2.GaussianBlur(binary_image, (5, 5), 0)
 
     return input_image, blurred_image
 
 # Function to detect if the number plate is front (1 row) or back (2 rows)
 def detect_plate_type(image):
-    # Simple heuristic: Check image height and width ratio to determine rows
+    # Simple heuristic: Check image height and width ratio to determine rows   
     height, width = image.shape[:2]
     
     if height / width > 0.3:  # Assumes back plate has larger height relative to width
