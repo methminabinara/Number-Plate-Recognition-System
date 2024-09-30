@@ -93,13 +93,17 @@ def crop_first_letter(image, plate_type):
 if __name__ == "__main__":
     # Paths to the templates
     templates = {
-        'A': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/3wheel front A.jpeg",
-        'B': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/bike back B 2.jpg",
+        'A': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/3wheel front A1.jpeg",
+        'B': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/bike back B1.jpg",
+        'C': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/Car back C1.jpg",
+        'V': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/bike back V1.jpg",
+        'W': "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/bike back W1.jpg",
+        "K": "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/Templates/Car back K1.jpg"
         # Add more template paths for letters 'C', 'G', 'H', etc.
     }
 
     # Step 1: Preprocess the input image
-    image_path = "F:/University/3000 Level/Semester 1/Computer Science/CSC 3141/Project/Number-Plate-Recognition-System/assets/images/bike back B.jpg"
+    image_path = "assets/images/bike back B.jpg"
     input_image, processed_image = preprocess_image(image_path)
 
     # Step 2: Detect if it's a front or back number plate
@@ -114,42 +118,42 @@ if __name__ == "__main__":
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-    # # Step 4: Perform template matching
-    # best_match = template_matching(first_letter_roi, templates)
+    # Step 4: Perform template matching
+    best_match = template_matching(first_letter_roi, templates)
 
-    # # Vehicle types associated with each letter
-    # vehicle_types = {
-    #     'A': "Three-wheel",
-    #     'B': "Motor bicycle",
-    #     'C': "Motor car",
-    #     'G': "Quadricycle",
-    #     'H': "All vehicle types",
-    #     'J': "All vehicle types",
-    #     'K': "Motor car",
-    #     'M': "Motor bicycle",
-    #     'N': "Bus",
-    #     'P': "Van",
-    #     'Q': "Three-wheel",
-    #     'T': "Motor bicycle",
-    #     'U': "Motor bicycle",
-    #     'V': "Motor bicycle",
-    #     'W': "Motor bicycle",
-    #     'X': "Motor bicycle",
-    #     'Y': "Three-wheel"
-    # }
+    # Vehicle types associated with each letter
+    vehicle_types = {
+        'A': "Three-wheel",
+        'B': "Motor bicycle",
+        'C': "Motor car",
+        'G': "Quadricycle",
+        'H': "All vehicle types",
+        'J': "All vehicle types",
+        'K': "Motor car",
+        'M': "Motor bicycle",
+        'N': "Bus",
+        'P': "Van",
+        'Q': "Three-wheel",
+        'T': "Motor bicycle",
+        'U': "Motor bicycle",
+        'V': "Motor bicycle",
+        'W': "Motor bicycle",
+        'X': "Motor bicycle",
+        'Y': "Three-wheel"
+    }
 
-    # # Step 5: Display the vehicle type based on the first letter
-    # vehicle_type = vehicle_types.get(best_match, "Unknown")
-    # print(f"Best match: {best_match} - Vehicle type: {vehicle_type}")
+    # Step 5: Display the vehicle type based on the first letter
+    vehicle_type = vehicle_types.get(best_match, "Unknown")
+    print(f" Vehicle type: {vehicle_type}")
 
-    # # Step 6: Resize images to fit within the screen dimensions (optional for display)
-    # height, width = input_image.shape[:2]
-    # max_height = 800
-    # max_width = 1200
-    # if height > max_height or width > max_width:
-    #     scale_factor = min(max_height/height, max_width/width)
-    #     input_image = cv2.resize(input_image, None, fx=scale_factor, fy=scale_factor)
-    #     processed_image = cv2.resize(processed_image, None, fx=scale_factor, fy=scale_factor)
+    # Step 6: Resize images to fit within the screen dimensions (optional for display)
+    height, width = input_image.shape[:2]
+    max_height = 800
+    max_width = 1200
+    if height > max_height or width > max_width:
+        scale_factor = min(max_height/height, max_width/width)
+        input_image = cv2.resize(input_image, None, fx=scale_factor, fy=scale_factor)
+        processed_image = cv2.resize(processed_image, None, fx=scale_factor, fy=scale_factor)
 
     # Step 7: Display the original, processed, and cropped images
     cv2.imshow("Original Image", input_image)
