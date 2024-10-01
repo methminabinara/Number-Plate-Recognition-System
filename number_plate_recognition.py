@@ -98,7 +98,7 @@ import matplotlib.pyplot as plt
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
 
 # Load the main image
-image = cv2.imread('assets/images/bike back V.jpg')
+image = cv2.imread('assets/images/bike back B.jpg')
 
 # Convert the main image to grayscale
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -115,7 +115,7 @@ vehicle_templates = {
     'Motorbike': ['assets/images/Templates/bike back B1.jpg', 'assets/images/Templates/bike back B2.jpg', 'assets/images/Templates/bike back B3.jpg', 
                   'assets/images/Templates/bike back V1.jpg', 'assets/images/Templates/bike back W1.jpg', 'assets/images/Templates/bike back X1.jpg', 
                   'assets/images/Templates/bike front B1.jpg', 'assets/images/Templates/bike front B2.jpg'],
-    'Car': ['assets/images/Templates/car front C1.jpg', 'assets/images/Templates/car back C2.jpg'],
+    'Car': ['assets/images/Templates/car front C1.jpg', 'assets/images/Templates/car back C2.jpg', 'assets/images/Templates/car back C3.jpg', 'assets/images/Templates/car front C2.jpg'],
     # 'Van': ['assets/images/Templates/van front P1.jpg', 'assets/images/Templates/van back P2.jpg'],
     'Three Wheeler': ['assets/images/Templates/3wheel back Q.jpg'],
     # Add more vehicle types and templates as needed
